@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
     <title>Dashboard - Project</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/4.0/exemples/sign-in/signin.css" rel="stylesheet">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="text-center">
     {% block content %}

@@ -1,0 +1,8 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the header stays above other elements */
+    background-color: #fff; /* Choose a background color to avoid transparency */
+    border-bottom: 1px solid #ddd; /* Adds a bottom border for emphasis */
+}
