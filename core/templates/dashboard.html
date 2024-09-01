@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    Testeeeee !!!
+{% include 'header.html' %}
+<div class="container" style="padding-top: 70px;">
+
+    <ul>
+        {% for p in products %}
+            <li>{{ p.product_name }}: {{ p.quantity }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <a href="{% url 'product-create' %}">Create New Product</a>
+</div>
 {% endblock %}

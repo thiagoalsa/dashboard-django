@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from .models import CustomUser
+from .models import CustomUser, Product
+from django import forms
 
 
 class CustomUserCreateForm(UserCreationForm):
@@ -21,3 +22,17 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name')
+
+
+class ProductModelForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['product_name', 'quantity']
+        labels = {
+            'product_name': 'Product Name',
+            'quantity': 'Quantity'
+        }
+        widgets = {
+            'product_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter product name'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity'}),
+        }

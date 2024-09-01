@@ -47,3 +47,8 @@ class CustomUser(AbstractUser):
         return self.email  # Returns the email as the string representation.
 
     objects = UserManager()  # Assigns the custom user manager to the model.
+
+
+class Product(models.Model):
+    product_name = models.CharField('Product', max_length=100)
+    quantity = models.IntegerField('Quantity')
