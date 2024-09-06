@@ -15,7 +15,7 @@ class DashboardView(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_anonymous:
-            return redirect('index.html')
+            return redirect(reverse_lazy('index'))
         return super().dispatch(request, *args, **kwargs)
 
 
