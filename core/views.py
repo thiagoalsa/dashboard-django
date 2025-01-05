@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
 from .models import Product
 from .forms import ProductModelForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(TemplateView):
@@ -25,7 +26,7 @@ class DashboardView(TemplateView):
         return context
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductModelForm
     template_name = 'products/product_form.html'
