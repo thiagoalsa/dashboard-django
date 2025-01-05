@@ -14,9 +14,23 @@
     <tbody>
         {% for p in products %}
             <tr>
-                <td>{{ p.product_name }}</td>
+                <td><a href="#modal{{p.id}}" data-toggle="modal">{{ p.product_name }}</a></td>
                 <td>{{ p.quantity }}</td>
             </tr>
+            <div class="modal fade bd-example-modal-lg show" id="modal{{p.id}}" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="dynamic-content">
+                            <img src="{{ p.image.url }}" class="img-fluid" alt="{{ p.product_name }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </tbody>
     </table>
