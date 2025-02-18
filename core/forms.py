@@ -27,12 +27,14 @@ class CustomUserChangeForm(UserChangeForm):
 class ProductModelForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['product_name', 'quantity']
+        fields = ['product_name', 'description', 'quantity']
         labels = {
             'product_name': 'Product Name',
+            'description': 'Description',
             'quantity': 'Quantity'
         }
         widgets = {
             'product_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter product name'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter description'}),
             'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity'}),
         }

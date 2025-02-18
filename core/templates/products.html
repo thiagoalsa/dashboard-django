@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+<div class="container" style="padding-top: 70px;">
+
+    <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if products_count > 0 %}
+            {% for p in products %}
+                <tr>
+                    <td><a href="#modal{{p.id}}" data-toggle="modal">{{ p.product_name }}</a></td>
+                    <td>{{ p.description }}</td>
+                    <td>{{ p.quantity }}</td>
+                </tr>
+                <div class="modal fade bd-example-modal-lg show" id="modal{{p.id}}" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="dynamic-content">
+                                <img src="{{ p.image.url }}" class="img-fluid" alt="{{ p.product_name }}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>Nada Aqui</h1>
+        {% endif %}
+    </tbody>
+    </table>
+
+    <a href="{% url 'product-create' %}">Create New Product</a>
+</div>
+{% endblock %}

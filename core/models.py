@@ -50,9 +50,8 @@ class CustomUser(AbstractUser):
 
 
 class Product(models.Model):
-    product_name = models.CharField('Produto', max_length=100)  # Campo de nome do produto com no máximo 100 caracteres.
-    description = models.TextField(blank=True, null=True)  # Campo da descricao do produto
-    quantity = models.IntegerField('Quantidade')  # Campo de quantidade do produto.
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # campo de preco do produto.
-    created = models.DateTimeField(auto_now_add=True)  # campo da data de criacao
-    updated = models.DateTimeField(auto_now=True)  # campo da data de atualizacao
+    product_name = models.CharField('Nome do Produto', max_length=100)
+    description = models.TextField(blank=True, null=True, verbose_name='Descrição do Produto')
+    quantity = models.IntegerField('Quantidade em Estoque')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Criado em')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Última Atualização')
