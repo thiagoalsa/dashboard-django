@@ -2,18 +2,20 @@
 {% block content %}
 
 {% include 'header.html' %}
-
-
-    <div class="container" style="padding-top: 70px;">
-        <h1>Teste</h1>
-        {% if user.is_anonymous %}
-            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
-        {% else %}
-            <div class="alert alert-primary" role="alert">
-                Welcome! {{ user.get_full_name }}!
-            </div>
-            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-        {% endif %}
+{% include 'vertical_menu.html' %}
+<div>
+    <div class="layout-container">
+        <div class="lex-grow-1 p-3" style="margin: 57px 0 0 250px;">
+            <h1>Teste</h1>
+            {% if user.is_anonymous %}
+                <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+            {% else %}
+                <div class="alert alert-primary" role="alert">
+                    Welcome! {{ user.get_full_name }}!
+                </div>
+                <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+        </div>
     </div>
-
+</div>
 {% endblock %}

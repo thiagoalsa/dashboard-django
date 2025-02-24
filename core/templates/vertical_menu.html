@@ -1,0 +1,13 @@
+{% if user.is_anonymous %}
+
+{% else %}
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3 position-fixed vh-100" style="width: 250px;">
+        <h4>Sidebar</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link text-white">Item 1</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white">Item 2</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-white">Item 3</a></li>
+        </ul>
+    </div>
+{% endif %}
